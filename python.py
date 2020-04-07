@@ -8,7 +8,7 @@ print(Fore.BLACK )
 print(Back.CYAN )
 owm = pyowm.OWM('7c9f41e4faf7b9046a78088c174938b8', language = "ru" )
 
-place = input("Какой город тебя интересует?: ")
+
 def check_city(place):
 	try:
 		observation = owm.weather_at_place(place)
@@ -20,11 +20,7 @@ def check_city(place):
 		print("Температура сейчас в районе " + str(temp) + "градусов" )
 	except pyowm.exceptions.api_response_error.NotFoundError:
 		print("Вы ввели не правильный город ")
-		if temp < 10:
-			print("Одевайся тепло!!!!!")
-		elif temp < 20:
-			print("Нормально одевайся!!")
-		else:
-			print("Погода норм")
 
+
+check_city(input("Введите город? "))		
 input()
